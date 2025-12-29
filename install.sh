@@ -88,6 +88,22 @@ mkdir -p data ssl
 echo -e "${GREEN}✅ Directories created${NC}"
 
 # ═══════════════════════════════════════════════════════════════════════════
+# GENERATE WEBHOOK TOKEN (if not already set)
+# ═══════════════════════════════════════════════════════════════════════════
+echo ""
+echo -e "${YELLOW}🔐 Checking webhook token...${NC}"
+
+# Check if webhook-token is empty
+if grep -q 'webhook-token: ""' config/application.yaml; then
+    TOKEN=$(openssl rand -hex 16)
+    sed -i "s/webhook-token: \"\"/webhook-token: \"$TOKEN\"/" config/application.yaml
+    echo -e "${GREEN}✅ Webhook token generated: ${TOKEN}${NC}"
+else
+    EXISTING_TOKEN=$(grep "webhook-token:" config/application.yaml | head -1 | sed 's/.*: *"//' | sed 's/".*//' | tr -d ' ')
+    echo -e "${GREEN}✅ Webhook token already configured: ${EXISTING_TOKEN}${NC}"
+fi
+
+# ═══════════════════════════════════════════════════════════════════════════
 # PULL IMAGE
 # ═══════════════════════════════════════════════════════════════════════════
 echo ""
