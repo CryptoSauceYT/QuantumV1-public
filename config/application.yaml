@@ -44,35 +44,55 @@ bot:
   # You can create multiple profiles for different strategies or accounts.
   # ═══════════════════════════════════════════════════════════════════════════
   profiles:
-    main:
-      # ─────────────────────────────────────────────────────────────────────────
-      # REQUIRED: Your Bitunix UID (same as license.uid)
-      # Find it in Bitunix: Profile → Account Settings
-      # ─────────────────────────────────────────────────────────────────────────
-      your-bitunix-uid: "YOUR_BITUNIX_UID"  # ← Replace with your UID
-
-      # ─────────────────────────────────────────────────────────────────────────
-      # TRADING PARAMETERS
-      # ─────────────────────────────────────────────────────────────────────────
-      leverage: 5           # Leverage multiplier (1-125)
-      
-      # Amount options:
-      #   "all"  → Use 100% of available balance (dynamic)
-      #   "50"   → Fixed 50 USDT per trade
-      #   "1000" → Fixed 1000 USDT per trade
+    bitcoin:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 20
       amount: "all"
-      
-      secu-tp: 2.0          # Take Profit % (security TP if signal has no TP)
-      secu-sl: 1.5          # Stop Loss % (security SL if signal has no SL)
-      entry-type: limit     # "limit" or "market"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
 
-      # ─────────────────────────────────────────────────────────────────────────
-      # BITUNIX API KEYS
-      # Get from: Bitunix → API Management → Create API
-      # Required permissions: Futures Trade, Futures Read
-      # ─────────────────────────────────────────────────────────────────────────
-      api-key: "YOUR_API_KEY"        # ← Replace with your API key
-      api-secret: "YOUR_API_SECRET"  # ← Replace with your API secret
+    ethereum:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 15
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    solana:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 25
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    xrp:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 10
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    bnb:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 5
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
 
   expired-time: 120  # Reject webhooks older than this (seconds)
 
