@@ -20,22 +20,31 @@ echo -e "${BLUE}╚════════════════════�
 echo ""
 
 # ═══════════════════════════════════════════════════════════════════════════
-# CHECK DOCKER
+# CHECK & INSTALL DOCKER
 # ═══════════════════════════════════════════════════════════════════════════
-echo -e "${YELLOW}📋 Checking requirements...${NC}"
+echo -e "${YELLOW}📋 Checking Docker...${NC}"
 
 if ! command -v docker &> /dev/null; then
-    echo -e "${RED}❌ Docker is not installed${NC}"
-    echo "   Install Docker: https://docs.docker.com/engine/install/"
-    exit 1
+    echo -e "${YELLOW}🐳 Docker not found. Installing Docker...${NC}"
+    curl -fsSL https://get.docker.com | sh
+    
+    # Start Docker service
+    systemctl start docker
+    systemctl enable docker
+    
+    echo -e "${GREEN}✅ Docker installed successfully${NC}"
+else
+    echo -e "${GREEN}✅ Docker is already installed${NC}"
 fi
 
+# Verify Docker Compose
 if ! docker compose version &> /dev/null; then
-    echo -e "${RED}❌ Docker Compose is not installed${NC}"
+    echo -e "${RED}❌ Docker Compose not available${NC}"
+    echo "   Please update Docker or install Docker Compose plugin"
     exit 1
 fi
 
-echo -e "${GREEN}✅ Docker and Docker Compose are installed${NC}"
+echo -e "${GREEN}✅ Docker and Docker Compose are ready${NC}"
 
 # ═══════════════════════════════════════════════════════════════════════════
 # CHECK CONFIGURATION
