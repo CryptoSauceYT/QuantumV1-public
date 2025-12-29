@@ -1,0 +1,15 @@
+# User data
+data/
+
+# SSL certificates
+ssl/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env

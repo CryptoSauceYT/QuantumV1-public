@@ -1,0 +1,102 @@
+server:
+  port: 8080
+
+# ═══════════════════════════════════════════════════════════════════════════
+# 🔐 LICENSE CONFIGURATION
+# ═══════════════════════════════════════════════════════════════════════════
+# This bot requires a valid license to operate.
+# Your Bitunix account must be affiliated with Underground Trading.
+# Register at: https://www.bitunix.site/register?vipCode=g3gj7090
+# The license UID is automatically taken from your first profile.
+# ═══════════════════════════════════════════════════════════════════════════
+license:
+  enabled: true
+
+logging:
+  level:
+    io.sauce.tradingbot: INFO
+    root: INFO
+
+bot:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # WEBHOOK SECURITY
+  # ═══════════════════════════════════════════════════════════════════════════
+  # Generate a token with: openssl rand -hex 16
+  # Your webhook URL will be: https://your-vps-ip/wh/YOUR_TOKEN
+  # ═══════════════════════════════════════════════════════════════════════════
+  webhook-token: ""  # ← Generate with: openssl rand -hex 16
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # TRADING PAIRS (optional - leave empty for auto-detect)
+  # ═══════════════════════════════════════════════════════════════════════════
+  trading-pairs: []
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # STATE PERSISTENCE
+  # ═══════════════════════════════════════════════════════════════════════════
+  state:
+    enabled: true
+    auto-save-interval: 30
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # TRADING PROFILES
+  # ═══════════════════════════════════════════════════════════════════════════
+  # You can create multiple profiles for different strategies or accounts.
+  # ═══════════════════════════════════════════════════════════════════════════
+  profiles:
+    bitcoin:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 20
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    ethereum:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 15
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    solana:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 25
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    xrp:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 10
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+    bnb:
+      your-bitunix-uid: "YOUR_BITUNIX_UID"
+      leverage: 5
+      amount: "all"
+      secu-tp: 2.0
+      secu-sl: 1.5
+      entry-type: limit
+      api-key: "YOUR_API_KEY"
+      api-secret: "YOUR_API_SECRET"
+
+  expired-time: 120  # Reject webhooks older than this (seconds)
+
+bitunix:
+  api-url: https://fapi.bitunix.com
+  ws-public-url: wss://fapi.bitunix.com/public/
+  ws-private-url: wss://fapi.bitunix.com/private/
