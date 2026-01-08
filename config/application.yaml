@@ -1,17 +1,6 @@
 server:
   port: 8080
 
-# ═══════════════════════════════════════════════════════════════════════════
-# 🔐 LICENSE CONFIGURATION (REQUIRED)
-# ═══════════════════════════════════════════════════════════════════════════
-# This bot requires a valid license to operate.
-# Your Bitunix account must be affiliated with Underground Trading.
-# Register at: https://www.bitunix.site/register?vipCode=g3gj7090
-# ═══════════════════════════════════════════════════════════════════════════
-license:
-  uid: "YOUR_BITUNIX_UID"   # ← Replace with your Bitunix UID
-  enabled: true
-
 logging:
   level:
     io.sauce.tradingbot: INFO
